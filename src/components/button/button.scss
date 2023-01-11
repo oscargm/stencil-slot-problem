@@ -1,0 +1,57 @@
+test-button.test-button {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  outline: none;
+  min-height: 2.25rem;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  letter-spacing: 0;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  border: none;
+  position: relative;
+  background-color: salmon;
+  color: white;
+
+  /* reset CSS */
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+    border-radius: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    cursor: inherit;
+    overflow-wrap: inherit;
+    border: inherit;
+    background-color: transparent;
+    color: inherit;
+    pointer-events: inherit;
+    user-select: none;
+    outline: none;
+    .content-wrapper {
+      [slot='prefix'],
+      [slot='suffix'] {
+        color: inherit;
+        cursor: inherit;
+      }
+      [slot='prefix'] {
+        margin-right: 0.5rem;
+      }
+      [slot='suffix'] {
+        margin-left: calc-rem(8px);
+      }
+    }
+  }
+
+  &:hover {
+    background-color: darksalmon;
+    color: black;
+  }
+}
