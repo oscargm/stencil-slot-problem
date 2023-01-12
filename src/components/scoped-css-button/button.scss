@@ -1,4 +1,4 @@
-test-button.test-button {
+:host {
   width: fit-content;
   height: fit-content;
   display: flex;
@@ -20,7 +20,7 @@ test-button.test-button {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     margin: 0;
     border-radius: inherit;
     font-family: inherit;
@@ -36,16 +36,15 @@ test-button.test-button {
     user-select: none;
     outline: none;
     .content-wrapper {
-      [slot='prefix'],
-      [slot='suffix'] {
-        color: inherit;
-        cursor: inherit;
+      ::slotted([slot='prefix']),
+      ::slotted([slot='suffix']) {
+        color: green;
       }
-      [slot='prefix'] {
+      ::slotted([slot='prefix']) {
         margin-right: 0.5rem;
       }
-      [slot='suffix'] {
-        margin-left: calc-rem(8px);
+      ::slotted([slot='suffix']) {
+        margin-left: 0.5rem;
       }
     }
   }

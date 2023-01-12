@@ -7,17 +7,185 @@
 
     <script type="module" src="/build/test.esm.js"></script>
     <script nomodule src="/build/test.js"></script>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .buttons-container {
+        display: flex;
+        flex-direction: column;
+      }
+      .button {
+        margin-bottom: 8px;
+      }
+      .button-row {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .button-row > span {
+        margin-left: 8px;
+      }
+    </style>
   </head>
   <body>
     <label>Set a button text: <input type="text" id="buttonText" /></label>
-    <test-button id="button">Button</test-button>
+    <div class="container">
+      <div class="buttons-container">
+        <!--
+        custom-element-button
+        No shadowDOM
+        No Scoped CSS
+    -->
+        <h4>Custom element</h4>
+        <span>No shadowDOM</span>
+        <span>No scopedCSS</span>
+        <div>Modifying input value modifies the following queries innerText</div>
+        <div class="button-row">
+          <span>custom-element-button</span>
+          <custom-element-button class="button with-text">Button</custom-element-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span</span>
+          <custom-element-button class="button with-children-element">
+            <span>Button</span>
+          </custom-element-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span[slot="prefix"]</span>
+          <custom-element-button class="button with-prefix">
+            <span slot="prefix">Prefix</span>
+            Button
+          </custom-element-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span[slot="prefix"]</span>
+          <custom-element-button class="button with-suffix">
+            Button
+            <span slot="suffix">Suffix</span>
+          </custom-element-button>
+        </div>
+      </div>
+      <div class="buttons-container">
+        <!--
+        scoped-css-button
+        No shadowDOM
+        Scoped CSS
+    -->
+        <h4>Custom element with scoped CSS</h4>
+        <span>No shadowDOM</span>
+        <span>scopedCSS</span>
+        <div>Modifying input value modifies the following queries innerText</div>
+        <div class="button-row">
+          <span>custom-element-button</span>
+          <scoped-css-button class="button with-text">Button</scoped-css-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span</span>
+          <scoped-css-button class="button with-children-element">
+            <span>Button</span>
+          </scoped-css-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span[slot="prefix"]</span>
+          <scoped-css-button class="button with-prefix">
+            <span slot="prefix">Prefix</span>
+            Button
+          </scoped-css-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span[slot="prefix"]</span>
+          <scoped-css-button class="button with-suffix">
+            Button
+            <span slot="suffix">Suffix</span>
+          </scoped-css-button>
+        </div>
+      </div>
+      <div class="buttons-container">
+        <!--
+        shadow-dom-button
+        shadowDOM
+        No Scoped CSS
+    -->
+        <h4>Custom element with shadowDOM</h4>
+        <span>shadowDOM</span>
+        <span>No scopedCSS</span>
+        <div>Modifying input value modifies the following queries innerText</div>
+        <div class="button-row">
+          <span>custom-element-button</span>
+          <shadow-dom-button class="button with-text">Button</shadow-dom-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span</span>
+          <shadow-dom-button class="button with-children-element">
+            <span>Button</span>
+          </shadow-dom-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span[slot="prefix"]</span>
+          <shadow-dom-button class="button with-prefix">
+            <span slot="prefix">Prefix</span>
+            Button
+          </shadow-dom-button>
+        </div>
+        <div class="button-row">
+          <span>custom-element-button > span[slot="prefix"]</span>
+          <shadow-dom-button class="button with-suffix">
+            Button
+            <span slot="suffix">Suffix</span>
+          </shadow-dom-button>
+        </div>
+      </div>
+    </div>
   </body>
   <script type="text/javascript">
     window.onload = () => {
       const input = document.querySelector('#buttonText');
-      const button = document.querySelector('#button');
+      /*
+        customElementButton
+        No shadowDOM
+        No Scoped CSS
+      */
+      const customElementButtonWithText = document.querySelector('custom-element-button.with-text');
+      const customElementButtonWithChildrenElement = document.querySelector('custom-element-button.with-children-element span');
+      const customElementButtonWithPrefix = document.querySelector('custom-element-button.with-prefix span[slot="prefix"]');
+      const customElementButtonWithSuffix = document.querySelector('custom-element-button.with-suffix span[slot="suffix"]');
+      /*
+        scopedCssButton
+        No shadowDOM
+        Scoped CSS
+      */
+      const scopedCssButtonWithText = document.querySelector('scoped-css-button.with-text');
+      const scopedCssButtonWithChildrenElement = document.querySelector('scoped-css-button.with-children-element span');
+      const scopedCssButtonWithPrefix = document.querySelector('scoped-css-button.with-prefix span[slot="prefix"]');
+      const scopedCssButtonWithSuffix = document.querySelector('scoped-css-button.with-suffix span[slot="suffix"]');
+      /*
+        shadowDOMButton
+        shadowDOM
+        No Scoped CSS
+      */
+      const shadowDOMButtonWithText = document.querySelector('shadow-dom-button.with-text');
+      const shadowDOMButtonWithChildrenElement = document.querySelector('shadow-dom-button.with-children-element span');
+      const shadowDOMButtonWithPrefix = document.querySelector('shadow-dom-button.with-prefix span[slot="prefix"]');
+      const shadowDOMButtonWithSuffix = document.querySelector('shadow-dom-button.with-suffix span[slot="suffix"]');
       input.addEventListener('keydown', e => {
-        button.innerText = e.target.value;
+        customElementButtonWithText.innerText = e.target.value;
+        customElementButtonWithChildrenElement.innerText = e.target.value;
+        customElementButtonWithPrefix.innerText = e.target.value;
+        customElementButtonWithSuffix.innerText = e.target.value;
+
+        scopedCssButtonWithText.innerText = e.target.value;
+        scopedCssButtonWithChildrenElement.innerText = e.target.value;
+        scopedCssButtonWithPrefix.innerText = e.target.value;
+        scopedCssButtonWithSuffix.innerText = e.target.value;
+
+        shadowDOMButtonWithText.innerText = e.target.value;
+        shadowDOMButtonWithChildrenElement.innerText = e.target.value;
+        shadowDOMButtonWithPrefix.innerText = e.target.value;
+        shadowDOMButtonWithSuffix.innerText = e.target.value;
       });
     };
   </script>

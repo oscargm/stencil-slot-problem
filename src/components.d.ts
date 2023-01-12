@@ -6,32 +6,58 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface TestButton {
+    interface CustomElementButton {
+    }
+    interface ScopedCssButton {
+    }
+    interface ShadowDomButton {
     }
 }
 declare global {
-    interface HTMLTestButtonElement extends Components.TestButton, HTMLStencilElement {
+    interface HTMLCustomElementButtonElement extends Components.CustomElementButton, HTMLStencilElement {
     }
-    var HTMLTestButtonElement: {
-        prototype: HTMLTestButtonElement;
-        new (): HTMLTestButtonElement;
+    var HTMLCustomElementButtonElement: {
+        prototype: HTMLCustomElementButtonElement;
+        new (): HTMLCustomElementButtonElement;
+    };
+    interface HTMLScopedCssButtonElement extends Components.ScopedCssButton, HTMLStencilElement {
+    }
+    var HTMLScopedCssButtonElement: {
+        prototype: HTMLScopedCssButtonElement;
+        new (): HTMLScopedCssButtonElement;
+    };
+    interface HTMLShadowDomButtonElement extends Components.ShadowDomButton, HTMLStencilElement {
+    }
+    var HTMLShadowDomButtonElement: {
+        prototype: HTMLShadowDomButtonElement;
+        new (): HTMLShadowDomButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "test-button": HTMLTestButtonElement;
+        "custom-element-button": HTMLCustomElementButtonElement;
+        "scoped-css-button": HTMLScopedCssButtonElement;
+        "shadow-dom-button": HTMLShadowDomButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface TestButton {
+    interface CustomElementButton {
+    }
+    interface ScopedCssButton {
+    }
+    interface ShadowDomButton {
     }
     interface IntrinsicElements {
-        "test-button": TestButton;
+        "custom-element-button": CustomElementButton;
+        "scoped-css-button": ScopedCssButton;
+        "shadow-dom-button": ShadowDomButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "test-button": LocalJSX.TestButton & JSXBase.HTMLAttributes<HTMLTestButtonElement>;
+            "custom-element-button": LocalJSX.CustomElementButton & JSXBase.HTMLAttributes<HTMLCustomElementButtonElement>;
+            "scoped-css-button": LocalJSX.ScopedCssButton & JSXBase.HTMLAttributes<HTMLScopedCssButtonElement>;
+            "shadow-dom-button": LocalJSX.ShadowDomButton & JSXBase.HTMLAttributes<HTMLShadowDomButtonElement>;
         }
     }
 }

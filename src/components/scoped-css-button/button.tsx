@@ -1,20 +1,22 @@
 import { h, Component, ComponentInterface, Element, Host } from '@stencil/core';
 
 @Component({
-  tag: 'test-button',
+  tag: 'scoped-css-button',
   styleUrl: 'button.scss',
   shadow: false,
-  scoped: false,
+  scoped: true,
 })
 export class Button implements ComponentInterface {
   @Element() host;
 
   render(): HTMLElement {
     return (
-      <Host class="test-button">
+      <Host>
         <button>
           <div class="content-wrapper">
-            <slot name="prefix" />
+            <span class="prefix">
+              <slot name="prefix" />
+            </span>
             <slot />
             <slot name="suffix" />
           </div>

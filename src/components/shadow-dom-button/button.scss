@@ -1,0 +1,55 @@
+:host {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  outline: none;
+  min-height: 2.25rem;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  letter-spacing: 0;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  border: none;
+  position: relative;
+
+  /* reset CSS */
+  button {
+    background-color: salmon;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+    border-radius: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    cursor: inherit;
+    overflow-wrap: inherit;
+    border: inherit;
+    // background-color: transparent;
+    // color: inherit;
+    pointer-events: inherit;
+    user-select: none;
+    outline: none;
+    &:hover {
+      background-color: darksalmon;
+      color: black;
+    }
+    .content-wrapper {
+      ::slotted([slot='prefix']),
+      ::slotted([slot='suffix']) {
+        color: green;
+      }
+      ::slotted([slot='prefix']) {
+        margin-right: 0.5rem;
+      }
+      ::slotted([slot='suffix']) {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}

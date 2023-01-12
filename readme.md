@@ -24,4 +24,7 @@ npm start
 
 ![result](./stencil-slot.gif)
 
-Inspect the element and you'll see that the original html provided on slot has disappeared
+Inspect the element and you'll see that the original html provided on slot has disappeared for:
+
+- custom element without shadowDOM and scopedCSS
+- custom element with scopedCSS

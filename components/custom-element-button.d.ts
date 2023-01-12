@@ -1,9 +1,9 @@
 import type { Components, JSX } from "../dist/types/components";
 
-interface TestButton extends Components.TestButton, HTMLElement {}
-export const TestButton: {
-  prototype: TestButton;
-  new (): TestButton;
+interface CustomElementButton extends Components.CustomElementButton, HTMLElement {}
+export const CustomElementButton: {
+  prototype: CustomElementButton;
+  new (): CustomElementButton;
 };
 /**
  * Used to define this component and all nested components recursively.
