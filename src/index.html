@@ -43,7 +43,7 @@
         <h4>Custom element</h4>
         <span>No shadowDOM</span>
         <span>No scopedCSS</span>
-        <div>Modifying input value modifies the following queries innerText</div>
+        <div>Modifying input value modifies the following queries textContent</div>
         <div class="button-row">
           <span>custom-element-button</span>
           <custom-element-button class="button with-text">Button</custom-element-button>
@@ -78,7 +78,7 @@
         <h4>Custom element with scoped CSS</h4>
         <span>No shadowDOM</span>
         <span>scopedCSS</span>
-        <div>Modifying input value modifies the following queries innerText</div>
+        <div>Modifying input value modifies the following queries textContent</div>
         <div class="button-row">
           <span>custom-element-button</span>
           <scoped-css-button class="button with-text">Button</scoped-css-button>
@@ -113,7 +113,7 @@
         <h4>Custom element with shadowDOM</h4>
         <span>shadowDOM</span>
         <span>No scopedCSS</span>
-        <div>Modifying input value modifies the following queries innerText</div>
+        <div>Modifying input value modifies the following queries textContent</div>
         <div class="button-row">
           <span>custom-element-button</span>
           <shadow-dom-button class="button with-text">Button</shadow-dom-button>
@@ -172,20 +172,20 @@
       const shadowDOMButtonWithPrefix = document.querySelector('shadow-dom-button.with-prefix span[slot="prefix"]');
       const shadowDOMButtonWithSuffix = document.querySelector('shadow-dom-button.with-suffix span[slot="suffix"]');
       input.addEventListener('keydown', e => {
-        customElementButtonWithText.innerText = e.target.value;
-        customElementButtonWithChildrenElement.innerText = e.target.value;
-        customElementButtonWithPrefix.innerText = e.target.value;
-        customElementButtonWithSuffix.innerText = e.target.value;
+        customElementButtonWithText.textContent = e.target.value;
+        customElementButtonWithChildrenElement.textContent = e.target.value;
+        customElementButtonWithPrefix.textContent = e.target.value;
+        customElementButtonWithSuffix.textContent = e.target.value;
 
-        scopedCssButtonWithText.innerText = e.target.value;
-        scopedCssButtonWithChildrenElement.innerText = e.target.value;
-        scopedCssButtonWithPrefix.innerText = e.target.value;
-        scopedCssButtonWithSuffix.innerText = e.target.value;
+        scopedCssButtonWithText.textContent = e.target.value;
+        scopedCssButtonWithChildrenElement.textContent = e.target.value;
+        scopedCssButtonWithPrefix.textContent = e.target.value;
+        scopedCssButtonWithSuffix.textContent = e.target.value;
 
-        shadowDOMButtonWithText.innerText = e.target.value;
-        shadowDOMButtonWithChildrenElement.innerText = e.target.value;
-        shadowDOMButtonWithPrefix.innerText = e.target.value;
-        shadowDOMButtonWithSuffix.innerText = e.target.value;
+        shadowDOMButtonWithText.textContent = e.target.value;
+        shadowDOMButtonWithChildrenElement.textContent = e.target.value;
+        shadowDOMButtonWithPrefix.textContent = e.target.value;
+        shadowDOMButtonWithSuffix.textContent = e.target.value;
       });
     };
   </script>
